@@ -1,25 +1,12 @@
-use std::env;
-use std::env::Args;
-
-use loops::m_lps;
+use std::io;
+use std::io::Read;
 
 fn main() {
-    loops::hello_from_other_module();
+    println!("Digite o seu nome:");
 
-    m_lps::loop_loop();
-    m_lps::loop_while();
-    m_lps::loop_for();
+    let mut nome: String = String::new();
 
-    self::hello_world();
+    io::stdin().read_line(&mut nome);
+
+    print!("Olá {} !", &nome.trim());
 }
-
-fn hello_world() {
-    let mut args: Vec<String> = env::args().collect();
-    if args.len() <= 1 {
-        panic!("Program started without an argument.");
-    }
-
-    println!("System started at {} with {} arguments", args[0], args.len());
-    println!("Hello world!\nWelcome {:?}", args[1..].join(" "));
-}
-
