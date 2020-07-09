@@ -6,7 +6,9 @@ fn main() {
 
     let mut name: String = String::new();
 
-    io::stdin().read_line(&mut name).unwrap();
+    io::stdin()
+        .read_line(&mut name)
+        .expect("Failed to read line");
 
     println!("Olá {}!", &name.trim());
 
