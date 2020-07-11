@@ -2,6 +2,31 @@
 
 ## The Rust Programming Language
 
+### Ownership
+
+ - Each value in Rust has a variable that’s called its owner.
+ - There can only be one owner at a time.
+ - When the owner goes out of scope, the value will be dropped.
+
+### Borrowing
+
+ - At any given time, you can have either one mutable reference or any number of immutable references.
+ - References must always be valid.
+
+### Data races
+A data race is similar to a race condition and happens when these three behaviors occur:
+
+ - Two or more pointers access the same data at the same time.
+ - At least one of the pointers is being used to write to the data.
+ - There’s no mechanism being used to synchronize access to the data.
+
+ ### Strings
+ - Rust uses a deref coercion, which here turns &String into &String[..]
+ - There are actually three relevant ways to look at strings from Rust’s perspective: 
+    - as bytes, 
+    - scalar values, 
+    - grapheme clusters.
+
 ### Generics
 ```
 Rust implements generics in such a way that your code doesn’t run any slower using generic types than it would with concrete types.
